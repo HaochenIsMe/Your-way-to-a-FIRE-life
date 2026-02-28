@@ -20,7 +20,10 @@ Do you feel calm if save money in banks?
 ## How to achieve FIRE
 
 The formula of FIRE:
-Monthly spending = 4% * total asset
+
+$$
+\text{Monthly Spending} = 4\% \times \text{Total Asset}
+$$
 
 Consume that split the monthly spendings from your monthly income in advance. Given monthly income (MI), monthly spendings (MS), monthly rate of return (MROR), total asset (TA), percentage of TA acceptable for investment (POTAAFI), your next monthly total asset (NMTA) would be:
 

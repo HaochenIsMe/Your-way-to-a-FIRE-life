@@ -23,12 +23,29 @@ The formula of FIRE:
 Monthly spending = 4% * total asset
 
 Consume that split the monthly spendings from your monthly income in advance. Given monthly income (MI), monthly spendings (MS), monthly rate of return (MROR), total asset (TA), percentage of TA acceptable for investment (POTAAFI), your next monthly total asset (NMTA) would be:
-NMTA = (TA * POTAAFI) * (MROR + 1) + (TA * (1 - POTAAFI) + MI - MS)
-MS = Food Expenditure + Housing Expenditure + Entertainment Expenditure (that meets your desire, could be hobby, traveling)
-MI = Monthly Income + Part-time Job Income
-MROR = Stock + Real Estates + Government Bonds + TODO
-Stock = Hedging (TODO)
-Deflation Rate = TODO
+$$
+\text{NMTA} = (\text{TA} \times \text{POTAAFI}) \times (\text{MROR} + 1) + (\text{TA} \times (1 - \text{POTAAFI}) + \text{MI} - \text{MS})
+$$
+
+$$
+MS = \text{Food Expenditure} + \text{Housing Expenditure} + \text{Entertainment Expenditure}
+$$
+
+$$
+MI = \text{Monthly Income} + \text{Part-time Job Income}
+$$
+
+$$
+MROR = \text{Stock} + \text{Real Estates} + \text{Government Bonds} + \text{TODO}
+$$
+
+$$
+\text{Stock} = \text{Hedging (TODO)}
+$$
+
+$$
+\text{Deflation Rate} = \text{TODO}
+$$
 
 This system should have mechanisms to handle the unexpected expenditure and income. Let them be UE and UI, then we have:
 UE = Prepared for health care + TODO

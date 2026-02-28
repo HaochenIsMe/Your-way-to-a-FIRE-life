@@ -23,6 +23,7 @@ The formula of FIRE:
 Monthly spending = 4% * total asset
 
 Consume that split the monthly spendings from your monthly income in advance. Given monthly income (MI), monthly spendings (MS), monthly rate of return (MROR), total asset (TA), percentage of TA acceptable for investment (POTAAFI), your next monthly total asset (NMTA) would be:
+
 $$
 \text{NMTA} = (\text{TA} \times \text{POTAAFI}) \times (\text{MROR} + 1) + (\text{TA} \times (1 - \text{POTAAFI}) + \text{MI} - \text{MS})
 $$

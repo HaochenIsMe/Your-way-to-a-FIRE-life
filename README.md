@@ -25,7 +25,7 @@ $$
 \text{Monthly Spending} = 4\% \times \text{Total Asset}
 $$
 
-Consume that split the monthly spendings from your monthly income in advance. Given monthly income (MI), monthly spendings (MS), monthly rate of return (MROR), total asset (TA), percentage of TA acceptable for investment (POTAAFI), your next monthly total asset (NMTA) would be:
+Consume that you split monthly spendings from your monthly income in advance. Given monthly income (MI), monthly spendings (MS), monthly rate of return (MROR), total asset (TA), percentage of TA acceptable for investment (POTAAFI), your next monthly total asset (NMTA) would be:
 
 $$
 NMTA = (\text{TA} \times \text{POTAAFI}) \times (\text{MROR} + 1) + (\text{TA} \times (1 - \text{POTAAFI}) + \text{MI} - \text{MS})

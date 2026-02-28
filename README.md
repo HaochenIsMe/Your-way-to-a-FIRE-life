@@ -25,7 +25,7 @@ Monthly spending = 4% * total asset
 Consume that split the monthly spendings from your monthly income in advance. Given monthly income (MI), monthly spendings (MS), monthly rate of return (MROR), total asset (TA), percentage of TA acceptable for investment (POTAAFI), your next monthly total asset (NMTA) would be:
 
 $$
-\text{NMTA} = (\text{TA} \times \text{POTAAFI}) \times (\text{MROR} + 1) + (\text{TA} \times (1 - \text{POTAAFI}) + \text{MI} - \text{MS})
+NMTA = (\text{TA} \times \text{POTAAFI}) \times (\text{MROR} + 1) + (\text{TA} \times (1 - \text{POTAAFI}) + \text{MI} - \text{MS})
 $$
 
 $$
@@ -49,8 +49,13 @@ $$
 $$
 
 This system should have mechanisms to handle the unexpected expenditure and income. Let them be UE and UI, then we have:
-UE = Prepared for health care + TODO
-TA = TA - UE + UI
+$$
+\text{UE} = \text{Prepared for health care} + \text{TODO}
+$$
+
+$$
+\text{TA} = \text{TA} - \text{UE} + \text{UI}
+$$
 
 ## Time to achieving FIRE calculation
 

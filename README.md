@@ -1,5 +1,3 @@
-# Your way to a FIRE life
-
 ## Why you need FIRE
 Ask yourself, what is FIRE? Generally, if someone have successfully reached FIRE, it means that he/she doesn't have to work anymore but still has enough money covering all expenditure in her/his life. According to this defination, it is not hard to reach out the pros and cons of being FIRE:
  - Pros: Have free time to do the things that you really wish to do as surviving in society doesn't bother you anymore. It could be your hobby, your dream job that doesn't earn a lot, or just staying at a Sydney's beach everyday without doing anything.

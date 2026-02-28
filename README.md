@@ -61,7 +61,7 @@ $$
 \text{TA} = \text{TA} - \text{UE} + \text{UI}
 $$
 
-## Time to achieving FIRE calculation
+## FIRE Estimation Program
 
 Program variables:
  - Unchanged variables:

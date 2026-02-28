@@ -49,6 +49,7 @@ $$
 $$
 
 This system should have mechanisms to handle the unexpected expenditure and income. Let them be UE and UI, then we have:
+
 $$
 \text{UE} = \text{Prepared for health care} + \text{TODO}
 $$

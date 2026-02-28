@@ -10,12 +10,12 @@ Some factors are not deterministic. They are dynamic variables that depend on in
  - How much passive income do you earn monthly? Earning passive income is the core of the FIRE plan. The way to earn passive income might be achieved by investing through stock market, real estates, government bonds, trust products, pension insurance, etc.
 
  Artifacts:
-When you live on 4% of your total asset, congratulations, you've achieved FIRE.
+- When you live on 4% of your total asset, congratulations, you've achieved FIRE.
 
 ## Psychological Level
-How many percentage of the total asset is acceptable for you to invest? Saving in banks VS Transforming into other asset forms
-Are you fear of investing something?
-Do you feel calm if save money in banks?
+- How many percentage of the total asset is acceptable for you to invest? Saving in banks VS Transforming into other asset forms
+- Are you fear of investing something?
+- Do you feel calm if save money in banks?
 
 ## How to achieve FIRE
 

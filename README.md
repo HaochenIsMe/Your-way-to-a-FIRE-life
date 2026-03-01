@@ -21,42 +21,23 @@ Some factors are not deterministic. They are dynamic variables that depend on in
 
 The formula of FIRE:
 
-$$
-\text{Annual Spending} = 4\% \times \text{COI}
-$$
+- **Annual Spending** = 4% × COI
 
 We have to quantify the following elements to concretely come up with the time needed to achieve financial independence:
 
- - Risk Tolerance Rate
- - Monthly Salary
- - AROI (Annual Return of Investment)
- - COI (Cost of Investment)
+- Risk Tolerance Rate
+- Monthly Salary
+- AROI (Annual Return of Investment)
+- COI (Cost of Investment)
 
 By convenience, we multiplied all monthly salaries by the AROI, whereas apparently December's salary has only one month's profit not twelve months'. Then the annual total assets at every year's Jan. 1st would be:
 
-$$
-\text{Cash Earned This Year} = 12 \times \text{Monthly Salary} \times \text{Risk Tolerance Rate}
-$$
-
-$$
-\text{Total Cash} = \text{Remaining Cash} + \text{Cash Earned This Year}
-$$
-
-$$
-\text{COI Appended This Year} = 12 \times \text{Monthly Salary} \times \text{Risk Tolerance Rate}
-$$
-
-$$
-\text{COI} = \text{Current COI} + \text{COI Appended This Year}
-$$
-
-$$
-\text{Monthly Expenditure} = \text{Rent Costs} + \text{Utilities} + \text{Internet Costs} + \text{Food Costs} + \text{Transportation Costs}
-$$
-
-$$
-\text{Annual Total Assets} = \text{COI} \times (1 + \text{AROI}) + \text{Total Cash} - 12 \times \text{Monthly Expenditure}
-$$
+- **Cash Earned This Year** = 12 × Monthly Salary × Risk Tolerance Rate
+- **Total Cash** = Remaining Cash + Cash Earned This Year
+- **COI Appended This Year** = 12 × Monthly Salary × Risk Tolerance Rate
+- **COI** = Current COI + COI Appended This Year
+- **Monthly Expenditure** = Rent Costs + Utilities + Internet Costs + Food Costs + Transportation Costs
+- **Annual Total Assets** = COI × (1 + AROI) + Total Cash − 12 × Monthly Expenditure
 
 This system should have mechanisms to handle the unexpected expenditure and income, say UE and UI. 
 

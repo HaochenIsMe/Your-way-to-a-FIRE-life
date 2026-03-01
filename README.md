@@ -25,42 +25,45 @@ The formula of FIRE:
 
 We have to quantify the following elements to concretely come up with the time needed to achieve financial independence:
 
-- Risk Tolerance Rate
+- Risk Tolerance Rate: The rate of asset used for investment
 - Monthly Salary
-- AROI (Annual Return of Investment)
+- MROI (Monthly Return of Investment)
 - COI (Cost of Investment)
 
-By convenience, we multiplied all monthly salaries by the AROI, whereas apparently December's salary has only one month's profit not twelve months'. Then the annual total assets at every year's Jan. 1st would be:
+The simulation runs month by month. At the start of each month:
 
-- **Cash Earned This Year** = 12 × Monthly Salary × Risk Tolerance Rate
-- **Total Cash** = Remaining Cash + Cash Earned This Year
-- **COI Appended This Year** = 12 × Monthly Salary × Risk Tolerance Rate
-- **COI** = Current COI + COI Appended This Year
-- **Monthly Expenditure** = Rent Costs + Utilities + Internet Costs + Food Costs + Transportation Costs
-- **Annual Total Assets** = COI × (1 + AROI) + Total Cash − 12 × Monthly Expenditure
+- **Cash Earned This Month** = Monthly Salary × (1 - Risk Tolerance Rate)
+- **Total Cash** = Remaining Cash + Cash Earned This Month
+- **COI Appended This Month** = Monthly Salary × Risk Tolerance Rate
+- **COI** = Current COI × (1 + MROI) + COI Appended This Month
+- **Monthly Expenditure** = Rent Costs + Utilities + Internet Costs + Food Costs + Transportation Costs + Mobile Phone Plan
+- **Remaining Cash** = Total Cash − Monthly Expenditure
+- **Total Assets** = COI + Remaining Cash
 
-This system should have mechanisms to handle the unexpected expenditure and income, say UE and UI. 
+This system should have mechanisms to handle the unexpected expenditure and income. 
 
 ## Time to the FIRE Estimation
 
 Program variables:
  - Unchanged variables:
-1. The total asset at the starting moment
-2. Monthly Salary
-3. AROI
-4. COI at the starting moment
+1. Initial Cash Amount
+2. Initial COI
+3. Risk Tolerance Rate
+3. Monthly Salary
+4. MROI
 5. Rent Costs
 6. Utilities
 7. Internet Costs
 8. Food Costs
 9. Transportation Costs
+10. Mobile Phone Plan
 
  - Changeable variables:
-1. UE
-2. UI
+1. Unexpected Expenditure
+2. Unexpected Income
 
 Program functions:
-1. Estimate how many years and months needed to achieve the FIRE.
-2. Estimate Annual Total Assets
-3. Re-estimate Annual Total Assets on every single UE and UI update.
+1. Estimate the current Annual Total Assets and how many years and months needed to achieve the FIRE.
+2. Re-estimate Annual Total Assets on every single UE and UI update.
+3. Plot a curve of years to FIRE vs AROI, visualising how different annual return rates affect the time to financial independence.
 

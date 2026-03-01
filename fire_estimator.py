@@ -8,16 +8,20 @@ Simulation runs month by month. Set AROI in the definition area; MROI is derived
 Usage:
   python fire_estimator.py                          # fn1 (default)
   python fire_estimator.py --fn1                    # estimate months/years to FIRE
-  python fire_estimator.py --fn3 "3 5000 0" "7 0 10000"  # re-estimate with UE/UI events (month-based)
-  python fire_estimator.py --fn4                          # generate 4 plots (AROI / expenditure / salary / risk tolerance)
+  python fire_estimator.py --fn2 "3 5000 0" "7 0 10000"  # re-estimate with UE/UI events (month-based)
+  python fire_estimator.py --fn3                          # generate 4 plots (AROI / expenditure / salary / risk tolerance)
 """
 
 import argparse
+import os
+
 import matplotlib.pyplot as plt
 
 # ===========================================================================
 # DEFINITION AREA — modify your variables here
 # ===========================================================================
+
+OUTPUT_DIR       = "outputs"   # Directory for all log files and plots
 
 CURRENCY         = "CNY"       # Currency type (e.g. "USD", "AUD", "CNY")
 
@@ -31,7 +35,7 @@ RISK_TOLERANCE   = 0.50        # Fraction of salary to invest (e.g. 0.50 = 50%)
 RENT_COSTS       = 7_309.07    # Monthly rent
 UTILITIES        = 505         # Monthly utilities
 INTERNET_COSTS   = 383         # Monthly internet
-FOOD_COSTS       = 2_533       # Monthly food
+FOOD_COSTS       = 4_334       # Monthly food
 TRANSPORTATION   = 1_060       # Monthly transportation
 MOBILE_PLAN      = 160         # Monthly mobile phone plan
 
@@ -43,6 +47,8 @@ MOBILE_PLAN      = 160         # Monthly mobile phone plan
 # ---------------------------------------------------------------------------
 
 MONTHLY_EXPENDITURE = RENT_COSTS + UTILITIES + INTERNET_COSTS + FOOD_COSTS + TRANSPORTATION + MOBILE_PLAN
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
 def _compute_month(coi, remaining_cash, salary=None, ue=0, ui=0):
@@ -148,7 +154,7 @@ def fn1_estimate_fire(max_years=200):
     Function 1 — Estimate current Total Assets and months/years to FIRE.
     Runs automatically when the script is executed.
     """
-    log_path = "fn1_log.txt"
+    log_path = os.path.join(OUTPUT_DIR, "fn1_log.txt")
     _header("fn1 — Estimate Time to FIRE")
 
     with open(log_path, "w", encoding="utf-8") as log_file:
@@ -184,9 +190,9 @@ def fn1_estimate_fire(max_years=200):
 
 
 
-def fn3_reestimate_with_events(events, max_years=200):
+def fn2_reestimate_with_events(events, max_years=200):
     """
-    Function 3 — Re-estimate Total Assets given UE/UI events.
+    Function 2 — Re-estimate Total Assets given UE/UI events.
 
     Args:
         events: list of (month, ue, ui)
@@ -194,8 +200,8 @@ def fn3_reestimate_with_events(events, max_years=200):
                      month 3 → unexpected expense 5,000
                      month 7 → unexpected income  10,000
     """
-    log_path = "fn3_log.txt"
-    _header("fn3 — Re-estimate with Unexpected Expenditure / Income")
+    log_path = os.path.join(OUTPUT_DIR, "fn2_log.txt")
+    _header("fn2 — Re-estimate with Unexpected Expenditure / Income")
 
     print("\n  Registered events:")
     for mo, ue, ui in sorted(events, key=lambda e: e[0]):
@@ -256,7 +262,7 @@ def _simulate_to_fire(mroi, salary, risk_tolerance, monthly_exp, max_years=200):
 
 def _plot_curve(x_vals, fire_years, current_x, xlabel, title, out_path,
                 x_fmt=lambda v: v, x_label_fmt=lambda v: f"{v}", max_years=200):
-    """Shared plotting helper for all fn4 sub-plots."""
+    """Shared plotting helper for all fn3 sub-plots."""
     x_reach = [x_fmt(x) for x, y in zip(x_vals, fire_years) if y is not None]
     y_reach = [y / 12   for y     in fire_years             if y is not None]
     x_no    = [x_fmt(x) for x, y in zip(x_vals, fire_years) if y is None]
@@ -287,9 +293,9 @@ def _plot_curve(x_vals, fire_years, current_x, xlabel, title, out_path,
     print(f"  Saved → {out_path}")
 
 
-def fn4(steps=60, max_years=200):
+def fn3(steps=60, max_years=200):
     """
-    Function 4 — Generate 4 plots showing years to FIRE as each variable changes
+    Function 3 — Generate 4 plots showing years to FIRE as each variable changes
     while all others stay fixed at their definition-area values.
 
       Plot 1: AROI            (1% – 30%)
@@ -297,7 +303,7 @@ def fn4(steps=60, max_years=200):
       Plot 3: Monthly Salary
       Plot 4: Risk Tolerance Rate
     """
-    _header("fn4 — Years to FIRE vs Key Variables (4 plots)")
+    _header("fn3 — Years to FIRE vs Key Variables (4 plots)")
 
     # ── Plot 1: AROI ────────────────────────────────────────────────────────
     print(f"\n  [1/4] Sweeping AROI...")
@@ -308,7 +314,7 @@ def fn4(steps=60, max_years=200):
     _plot_curve(aroi_vals, fire_aroi, AROI,
                 xlabel="AROI (%)",
                 title="Years to FIRE vs Annual Return of Investment (AROI)",
-                out_path="fn4_1_fire_vs_aroi.png",
+                out_path=os.path.join(OUTPUT_DIR, "fn3_1_fire_vs_aroi.png"),
                 x_fmt=lambda v: v * 100,
                 x_label_fmt=lambda v: f"{v*100:.1f}%",
                 max_years=max_years)
@@ -323,7 +329,7 @@ def fn4(steps=60, max_years=200):
     _plot_curve(exp_vals, fire_exp, MONTHLY_EXPENDITURE,
                 xlabel=f"Monthly Expenditure ({CURRENCY})",
                 title="Years to FIRE vs Monthly Expenditure",
-                out_path="fn4_2_fire_vs_expenditure.png",
+                out_path=os.path.join(OUTPUT_DIR, "fn3_2_fire_vs_expenditure.png"),
                 x_fmt=lambda v: v,
                 x_label_fmt=lambda v: f"{v:,.0f}",
                 max_years=max_years)
@@ -338,7 +344,7 @@ def fn4(steps=60, max_years=200):
     _plot_curve(sal_vals, fire_sal, MONTHLY_SALARY,
                 xlabel=f"Monthly Salary ({CURRENCY})",
                 title="Years to FIRE vs Monthly Salary",
-                out_path="fn4_3_fire_vs_salary.png",
+                out_path=os.path.join(OUTPUT_DIR, "fn3_3_fire_vs_salary.png"),
                 x_fmt=lambda v: v,
                 x_label_fmt=lambda v: f"{v:,.0f}",
                 max_years=max_years)
@@ -351,7 +357,7 @@ def fn4(steps=60, max_years=200):
     _plot_curve(rt_vals, fire_rt, RISK_TOLERANCE,
                 xlabel="Risk Tolerance Rate (%)",
                 title="Years to FIRE vs Risk Tolerance Rate",
-                out_path="fn4_4_fire_vs_risk_tolerance.png",
+                out_path=os.path.join(OUTPUT_DIR, "fn3_4_fire_vs_risk_tolerance.png"),
                 x_fmt=lambda v: v * 100,
                 x_label_fmt=lambda v: f"{v*100:.0f}%",
                 max_years=max_years)
@@ -368,20 +374,20 @@ if __name__ == "__main__":
     group  = parser.add_mutually_exclusive_group()
     group.add_argument("--fn1", action="store_true",
                        help="Estimate time to FIRE (default)")
-    group.add_argument("--fn3", nargs="+", metavar="EVENT",
+    group.add_argument("--fn2", nargs="+", metavar="EVENT",
                        help='Re-estimate with UE/UI events (month-based), e.g. "3 5000 0" "7 0 10000"')
-    group.add_argument("--fn4", action="store_true",
+    group.add_argument("--fn3", action="store_true",
                        help="Generate 4 plots: years-to-FIRE vs AROI / expenditure / salary / risk tolerance")
 
     args = parser.parse_args()
 
-    if args.fn3 is not None:
+    if args.fn2 is not None:
         events = []
-        for token in args.fn3:
+        for token in args.fn2:
             mo, ue, ui = token.split()
             events.append((int(mo), float(ue), float(ui)))
-        fn3_reestimate_with_events(events)
-    elif args.fn4:
-        fn4()
+        fn2_reestimate_with_events(events)
+    elif args.fn3:
+        fn3()
     else:
         fn1_estimate_fire()

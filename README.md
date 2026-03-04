@@ -67,3 +67,22 @@ Program functions:
 2. Re-estimate Annual Total Assets on every single UE and UI update.
 3. Plot a curve of years to FIRE vs AROI, visualising how different annual return rates affect the time to financial independence.
 
+# 向着AROI 10%前进
+注：
+1. 受限于语言能力，本篇以中文起稿，确保逻辑自洽后再进行英语本地化。
+2. 这里假设我们的AROI目标为10%。量化框架完成后，可以任意修改这一数字。
+
+我认真地思考了，试图全力捕捉到“年化收益率10%”与“实际股市操作”之间的违和感。我发现，如果将这两件事比喻成齿轮，它们好比一个是方的，一个是圆的，无法咬合。差在了哪里？将他们之间的差距语言化出来极其重要！我们来语言化他们之间的违和感：
+1. 年化收益率，是指从第T年看，相对于第T-1年，你的资产之比是多少。
+2. 股市，是反应了投资人对未来的预期。
+一个在往后看，一个在往前看，它们没有站在同一个时间点上。这就是最本质的问题。但不可否认，股票是帮助一般人达成财富自由非常厉害的工具。为了让这一工具为己所用，首先我们要量化股票投资是什么，并引入期望值的概念，好让一个未来的概念服务于现在。
+
+什么是股票投资，我们定义一次股票投资是指：
+1. 在Start Time点买入的
+2. 有固定COI的 (具体指 n股 x Start Time时的单价)
+3. 预计在End Time时卖出的
+4. 在End Time达到Expected Price的
+5. 在End Time达到Expected Price的概率为Probability的
+一次朝向AROI 10%努力的投入
+期望值公式：
+E()

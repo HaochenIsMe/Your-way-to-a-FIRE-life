@@ -50,7 +50,6 @@ MONTHLY_EXPENDITURE = RENT_COSTS + UTILITIES + INTERNET_COSTS + FOOD_COSTS + TRA
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-
 def _compute_month(coi, remaining_cash, salary=None, ue=0, ui=0):
     """
     Simulate one month and return (new_coi, new_cash, total_assets).
